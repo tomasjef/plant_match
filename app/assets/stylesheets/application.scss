@@ -10,3 +10,14 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.btn-success {
+  background-color: #EEF4E6!important;
+  border-color: #C8D9B8 !important;
+}
+
+.btn-success:hover {
+  background-color: #E4EDD8 !important;
+  border-color: #C8D9B8 !important;
+}

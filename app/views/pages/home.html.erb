@@ -1,2 +1,40 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container text-center py-5">
+  <p class="text-uppercase fw-semibold small mb-3" style="color: #7A9060; letter-spacing: 0.1em;">Your personal plant matchmaker</p>
+  <h1 class="display-4 fw-semibold mb-3" style="font-family: Georgia, serif;">
+  Find your <em style="color: #4A7C2F;">perfect</em> plant match
+</h1>
+  <p>Answer a few questions about your space and lifestyle. We'll find the plant that's perfectly suited for you.</p>
+  <div>
+<%= link_to "Get started", new_user_registration_path, class: "btn btn-success rounded-pill px-4" %>
+</div>
+<div class="row mt-5 g-3 align-items-stretch">
+  <div class="col-md-4">
+    <div class="border p-3 h-100">
+      <h5>Tell us about your space</h5>
+      <p>Light levels, pets, kids...</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="border p-3 h-100">
+      <h5>We find your match</h5>
+      <p>Our AI filters plants to find the ones built for your life</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="border p-3 h-100">
+      <h5>Meet your match</h5>
+      <p>Get your personalised plant recommendation and find where to buy it</p>
+    </div>
+  </div>
+  <div class="mt-5">
+  <p class="text-muted small mb-3">We match for</p>
+  <div class="d-flex flex-wrap justify-content-center gap-2">
+    <span class="badge rounded-pill border text-dark fs-6 fw-light">Non-toxic to pets</span>
+    <span class="badge rounded-pill border text-dark fs-6 fw-light">Low light</span>
+    <span class="badge rounded-pill border text-dark fs-6 fw-light">Low maintenance</span>
+    <span class="badge rounded-pill border text-dark fs-6 fw-light">Air purifying</span>
+    <span class="badge rounded-pill border text-dark fs-6 fw-light">Child safe</span>
+    <span class="badge rounded-pill border text-dark fs-6 fw-light">Budget friendly</span>
+  </div>
+</div>
+</div>
