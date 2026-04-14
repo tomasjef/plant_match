@@ -9,6 +9,7 @@
 #   end
 #
 puts "Cleaning database..."
+Plant.destroy_all
 
 Plant.create!(
   name: "Monstera",
