@@ -1,5 +1,5 @@
 class Plant < ApplicationRecord
-  hay_many :favorites
+  has_many :favorites
 
   validates :name, presence: true, uniqueness: true
   # validates :image_url -> cloudinary?
