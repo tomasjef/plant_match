@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_15_125458) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_15_143822) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -22,6 +22,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_125458) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_chats_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "plant_id", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["plant_id"], name: "index_favorites_on_plant_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -38,6 +47,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_125458) do
     t.string "care_level"
     t.datetime "created_at", null: false
     t.string "growth_style"
+    t.string "image_url"
     t.string "indoor_outdoor"
     t.string "light_needs"
     t.string "name"
@@ -59,5 +69,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_125458) do
   end
 
   add_foreign_key "chats", "users"
+  add_foreign_key "favorites", "plants"
+  add_foreign_key "favorites", "users"
   add_foreign_key "messages", "chats"
 end

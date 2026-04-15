@@ -2,7 +2,7 @@ class Plant < ApplicationRecord
   has_many :favorites
 
   validates :name, presence: true, uniqueness: true
-  # validates :image_url -> cloudinary?
+  validates :image_url, presence: true
 
   validates :light_needs, inclusion: { in: ["low", "medium", "bright indirect", "direct sun"] }
   validates :growth_style, inclusion: { in: ["upright", "trailing", "climbing", "bushy", "compact"] }
