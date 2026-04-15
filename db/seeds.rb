@@ -1,15 +1,9 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-#
 puts "Cleaning database..."
+# WICHTIG: Zuerst Favorites löschen, da sie auf Pflanzen verweisen
+Favorite.destroy_all if defined?(Favorite)
 Plant.destroy_all
+
+puts "Creating plants..."
 
 Plant.create!(
   name: "Monstera",
@@ -19,9 +13,9 @@ Plant.create!(
   care_level: "easy",
   indoor_outdoor: "indoor",
   pet_safe: false,
-  air_purifying: true
+  air_purifying: true,
+  image_url: "https://res.cloudinary.com/dqdg8zlau/image/upload/v1776252715/monstera_hydor6.avif"
 )
-puts "Monstera created"
 
 Plant.create!(
   name: "Snake Plant",
@@ -31,9 +25,9 @@ Plant.create!(
   care_level: "easy",
   indoor_outdoor: "both",
   pet_safe: false,
-  air_purifying: true
+  air_purifying: true,
+  image_url: "https://res.cloudinary.com/dqdg8zlau/image/upload/v1776252716/snake_plant_qibedh.avif"
 )
-puts "Snake Plant created"
 
 Plant.create!(
   name: "String of Hearts",
@@ -43,9 +37,9 @@ Plant.create!(
   care_level: "easy",
   indoor_outdoor: "indoor",
   pet_safe: false,
-  air_purifying: false
+  air_purifying: false,
+  image_url: "https://res.cloudinary.com/dqdg8zlau/image/upload/v1776252716/string_of_hearts_f8wxzi.avif"
 )
-puts "String of Hearts created"
 
 Plant.create!(
   name: "Bird of Paradise",
@@ -55,9 +49,9 @@ Plant.create!(
   care_level: "easy",
   indoor_outdoor: "indoor",
   pet_safe: false,
-  air_purifying: true
+  air_purifying: true,
+  image_url: "https://res.cloudinary.com/dqdg8zlau/image/upload/v1776252714/bird_of_paradise_xnpbml.avif"
 )
-puts "Bird of Paradise created"
 
 Plant.create!(
   name: "Hydrangea",
@@ -67,9 +61,9 @@ Plant.create!(
   care_level: "medium",
   indoor_outdoor: "both",
   pet_safe: false,
-  air_purifying: false
+  air_purifying: false,
+  image_url: "https://res.cloudinary.com/dqdg8zlau/image/upload/v1776252715/hydrangea_qv7pta.avif"
 )
-puts "Hydrangea created"
 
 Plant.create!(
   name: "Clusia",
@@ -79,9 +73,9 @@ Plant.create!(
   care_level: "easy",
   indoor_outdoor: "indoor",
   pet_safe: false,
-  air_purifying: true
+  air_purifying: true,
+  image_url: "https://res.cloudinary.com/dqdg8zlau/image/upload/v1776252714/clusia_pvvkxa.avif"
 )
-puts "Clusia created"
 
 Plant.create!(
   name: "Tradescantia",
@@ -91,9 +85,9 @@ Plant.create!(
   care_level: "easy",
   indoor_outdoor: "indoor",
   pet_safe: false,
-  air_purifying: true
+  air_purifying: true,
+  image_url: "https://res.cloudinary.com/dqdg8zlau/image/upload/v1776252716/Tradescantia_cpb3lk.avif"
 )
-puts "Tradescantia created"
 
 Plant.create!(
   name: "Ilex",
@@ -103,9 +97,9 @@ Plant.create!(
   care_level: "easy",
   indoor_outdoor: "outdoor",
   pet_safe: false,
-  air_purifying: true
+  air_purifying: true,
+  image_url: "https://res.cloudinary.com/dqdg8zlau/image/upload/v1776252715/Ilex_vqnkxy.avif"
 )
-puts "Ilex created"
 
 Plant.create!(
   name: "Lavender",
@@ -115,9 +109,9 @@ Plant.create!(
   care_level: "medium",
   indoor_outdoor: "both",
   pet_safe: false,
-  air_purifying: true
+  air_purifying: true,
+  image_url: "https://res.cloudinary.com/dqdg8zlau/image/upload/v1776252715/Lavender_t6kvpp.avif"
 )
-puts "Lavender created"
 
 Plant.create!(
   name: "Spider Plant",
@@ -127,9 +121,9 @@ Plant.create!(
   care_level: "easy",
   indoor_outdoor: "indoor",
   pet_safe: true,
-  air_purifying: true
+  air_purifying: true,
+  image_url: "https://res.cloudinary.com/dqdg8zlau/image/upload/v1776252716/spider_plant_lznxzi.avif"
 )
-puts "Spider Plant created"
 
 Plant.create!(
   name: "Calathea Orbifolia",
@@ -139,9 +133,9 @@ Plant.create!(
   care_level: "advanced",
   indoor_outdoor: "indoor",
   pet_safe: true,
-  air_purifying: true
+  air_purifying: true,
+  image_url: "https://res.cloudinary.com/dqdg8zlau/image/upload/v1776252714/calathea_orbifolia_leyfia.avif"
 )
-puts "Calathea Orbifolia created"
 
 Plant.create!(
   name: "Begonia",
@@ -151,9 +145,9 @@ Plant.create!(
   care_level: "medium",
   indoor_outdoor: "indoor",
   pet_safe: false,
-  air_purifying: false
+  air_purifying: false,
+  image_url: "https://res.cloudinary.com/dqdg8zlau/image/upload/v1776252714/begonia_bstt0x.avif"
 )
-puts "Begonia created"
 
 Plant.create!(
   name: "Super Dwarf Cavendish",
@@ -163,8 +157,8 @@ Plant.create!(
   care_level: "advanced",
   indoor_outdoor: "both",
   pet_safe: false,
-  air_purifying: false
+  air_purifying: false,
+  image_url: "https://res.cloudinary.com/dqdg8zlau/image/upload/v1776252716/super_dwarf_cavendish_lj2fci.avif"
 )
-puts "Super Dwarf Cavendish created"
 
-puts "Done!"
+puts "Finished! Created #{Plant.count} plants."
