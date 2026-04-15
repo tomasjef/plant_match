@@ -10,17 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_14_135948) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_15_125458) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
-  create_table "favorites", force: :cascade do |t|
+  create_table "chats", force: :cascade do |t|
+    t.text "ai_output"
     t.datetime "created_at", null: false
-    t.bigint "plant_id", null: false
+    t.text "questionnaire_answers"
+    t.text "questions_prompt"
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
-    t.index ["plant_id"], name: "index_favorites_on_plant_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "chat_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.string "role"
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
   end
 
   create_table "plants", force: :cascade do |t|
@@ -48,6 +58,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_14_135948) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "favorites", "plants"
-  add_foreign_key "favorites", "users"
+  add_foreign_key "chats", "users"
+  add_foreign_key "messages", "chats"
 end
