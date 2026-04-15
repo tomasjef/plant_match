@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <h1>Favorites</h1>
+  <hr>
+
+  <div class="row">
+    <% if @favorites.any? %>
+      <% @favorites.each do |favorite| %>
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="card shadow-sm h-100">
+            <img src="<%= favorite.plant.image_url %>" class="card-img-top" alt="<%= favorite.plant.name %>" style="height: 200px; object-fit: cover;">
+
+            <div class="card-body">
+              <h5 class="card-title"><%= favorite.plant.name %></h5>
+              <p class="card-text text-muted"><%= favorite.plant.light_needs %></p>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <%= link_to "Details", plant_path(favorite.plant), class: "btn btn-outline-primary btn-sm" %>
+
+                <%= link_to "Entfernen", favorite_path(favorite),
+                    data: { turbo_method: :delete, turbo_confirm: "Wirklich löschen?" },
+                    class: "text-danger small" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="col-12 text-center">
+        <p>Your list is still empty</p>
+        <%= link_to "To your suggestions", plants_path, class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>
