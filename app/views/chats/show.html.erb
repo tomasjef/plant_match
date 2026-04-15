@@ -1,6 +1,6 @@
 <%= link_to "← Back to chats", chats_path %>
-
-<h1 id="chat_title"><%= @chat.presence %></h1>
+<h2>Lets begin by defining your criteria for plants</h2>
+<h1 id="chat_title"><% @chat.presence %></h1>
 
 <div id="messages">
   <% @chat.messages.each do |message| %>
