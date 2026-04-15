@@ -1,0 +1,31 @@
+<div class="container py-4">
+  <h1 class="mb-4" style="font-weight:600">Plant Catalog</h1>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @plants.each do |plant| %>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height:180px">
+            <span style="color:white; font-size:40px">🌿</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title mb-2 mt-2" style="font-weight:600"><%= plant.name %></h5>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <span class="badge rounded-pill border" style="color:black; font-weight:400; border-color:black !important; background:transparent">🌱 <%= plant.care_level %></span>
+              <span class="badge rounded-pill border" style="color:black; font-weight:400; border-color:black !important; background:transparent">☀️ <%= plant.light_needs %></span>
+              <span class="badge rounded-pill border" style="color:black; font-weight:400; border-color:black !important; background:transparent">💧 <%= plant.water_needs %></span>
+              <span class="badge rounded-pill border" style="color:black; font-weight:400; border-color:black !important; background:transparent">🏠 <%= plant.indoor_outdoor %></span>
+              <span class="badge rounded-pill border" style="color:black; font-weight:400; border-color:black !important; background:transparent"><%= plant.pet_safe ? "✅ pet safe" : "❌ not pet safe" %></span>
+              <% if plant.air_purifying %>
+                <span class="badge rounded-pill border" style="color:black; font-weight:400; border-color:black !important; background:transparent">💨 air purifying</span>
+              <% end %>
+            </div>
+            <div class="mt-4">
+              <%= link_to "See details", plant_path(plant), class: "btn btn-sm btn-success rounded-pill px-3 py-2" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
