@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationRecord
-  before_action :authenticate_user! # Devise -> only logged-in users can favorite
+  # before_action :authenticate_user! # Devise -> only logged-in users can favorite
 
   def index
     @favorites = current_user.favorites # Get only the logged-in user's favorites
