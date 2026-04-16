@@ -14,7 +14,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new(user: current_user, plant: @plant)
 
     if @favorite.save
-      redirect_to favorites_path, notice: "#{@plant.name} added to your favorites! 🌱"
+      redirect_to plants_path, notice: "#{@plant.name} added to your favorites! 🌱"
     else
       # Falls der User die Pflanze schon hat (Validierung), zurück zum Index
       redirect_to plants_path, alert: "Already in your favorites."
