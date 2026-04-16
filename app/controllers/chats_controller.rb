@@ -1,8 +1,8 @@
 class ChatsController < ApplicationController
-
   def new
-  @chat = Chat.new
+    @chat = Chat.new
   end
+
   def create
     @chat = Chat.new
     @chat.user = current_user
@@ -10,13 +10,12 @@ class ChatsController < ApplicationController
     if @chat.save
       redirect_to chat_path(@chat)
     else
-      @chats = current_user.chats
       render :new, status: :unprocessable_entity
     end
   end
 
   def show
-    @chat = Chat.find_or_create_by(user: current_user)
+    @chat = current_user.chats.find(params[:id])
     @message = Message.new
   end
 end
