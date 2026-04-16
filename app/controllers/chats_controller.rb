@@ -1,4 +1,8 @@
 class ChatsController < ApplicationController
+
+  def new
+  @chat = Chat.new
+  end
   def create
     @chat = Chat.new
     @chat.user = current_user
