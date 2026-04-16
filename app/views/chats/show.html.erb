@@ -1,28 +1,16 @@
-<%= link_to "← Back to chats", chats_path %>
-<h2>Lets begin by defining your criteria for plants</h2>
-<h1 id="chat_title"><% @chat.presence %></h1>
 
-<div id="messages">
-  <% @chat.messages.each do |message| %>
-    <% if message.role == "user" %>
-      <div class="d-flex justify-content-end mb-2">
-        <div class="bg-white px-3 py-2 rounded-pill">
-          <%= raw(render_markdown(message.content)) %>
-        </div>
-      </div>
-    <% elsif message.role == "assistant" %>
-      <div class="d-flex justify-content-start mb-4">
-        <div class="px-3 py-2">
-          <%= raw(render_markdown(message.content)) %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+<%= link_to "← Back to chats", chats_path %>
+<h2>Let's find your perfect plant 🌿</h2>
+
+<div id="messages"
+     data-controller="chat"
+     data-chat-target="messages">
+  <%= render @chat.messages %>
 </div>
 
 <div id="new_message_container">
   <%= simple_form_for [@chat, @message] do |f| %>
-    <%= f.input :content,label: false, required: true, placeholder: "Type your answer..." %>
+    <%= f.input :content, label: false, required: true, placeholder: "Type your answer..." %>
     <%= f.button :submit, "Send", class: "btn btn-primary" %>
   <% end %>
 </div>
