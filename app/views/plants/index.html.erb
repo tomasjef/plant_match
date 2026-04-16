@@ -5,9 +5,13 @@
     <% @plants.each do |plant| %>
       <div class="col">
         <div class="card h-100">
-          <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height:180px">
-            <span style="color:white; font-size:40px">🌿</span>
-          </div>
+          <% if plant.image_url.present? %>
+            <%= image_tag plant.image_url, class: "card-img-top", style: "height: 200px; object-fit: cover;", alt: plant.name %>
+          <% else %>
+            <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 200px">
+              <span style="color:white; font-size:40px">🌿</span>
+            </div>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title mb-2 mt-2" style="font-weight:600"><%= plant.name %></h5>
             <div class="d-flex flex-wrap gap-2 mt-3">
