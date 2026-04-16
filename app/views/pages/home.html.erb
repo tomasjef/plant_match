@@ -10,8 +10,15 @@
         Find your <em style="color: #4A7C2F;">perfect</em> plant match
       </h1>
       <p class="lead text-muted mb-4">Answer a few questions about your space and lifestyle. We'll find the plant that's perfectly suited for you.</p>
-      <div>
-        <%= link_to "Get started", new_user_registration_path, class: "btn btn-success rounded-pill px-5 py-3" %>
+      <div class="d-flex flex-wrap gap-3">
+        <% if user_signed_in? %>
+          <%# Buttons for logged in User %>
+          <%= link_to "Find your plant match", new_chat_path, class: "btn btn-success rounded-pill px-4 py-3" %>
+          <%= link_to "See your favorites", favorites_path, class: "btn btn-outline-success rounded-pill px-4 py-3" %>
+        <% else %>
+          <%# Button for guests %>
+          <%= link_to "Get started", new_user_registration_path, class: "btn btn-success rounded-pill px-5 py-3" %>
+        <% end %>
       </div>
     </div>
   </div>
