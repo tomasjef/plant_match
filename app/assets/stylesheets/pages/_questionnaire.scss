@@ -1,12 +1,16 @@
 .questionnaire-wrapper {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .questionnaire-image {
-  width: 42%;
-  background: linear-gradient(160deg, #2d4a1e 0%, #1a2e1a 50%, #0d1f0d 100%);
+  width: 50%;
+  background: url("https://images.unsplash.com/photo-1581773340073-0d6c32f500a4?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
   padding: 40px;
@@ -18,7 +22,7 @@
 }
 
 .questionnaire-brand {
-  color: #7A9E1F;
+  color: #4A7C27;
   font-size: 11px;
   font-weight: 500;
   text-transform: uppercase;
@@ -59,7 +63,7 @@
 
 .questionnaire-progress-bar {
   height: 100%;
-  background: #246DD5;
+  background: #4A7C27;
   border-radius: 999px;
   transition: width 0.3s ease;
 }
@@ -71,8 +75,8 @@
 }
 
 .questionnaire-category {
-  font-size: 11px;
-  color: #7A9E1F;
+  font-size: 13px;
+  color: #4A7C27;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -105,14 +109,14 @@
 }
 
 .option-card:hover {
-  border-color: #246DD5;
-  background: #f5f9ff;
+  border-color: #4A7C27;
+  background: #EEF4E6;
 }
 
 .option-card.selected {
-  border-color: #246DD5;
+  border-color: #4A7C27;
   border-width: 2px;
-  background: #EBF3FD;
+  background: #EEF4E6;
 }
 
 .option-radio {
@@ -129,8 +133,8 @@
 }
 
 .option-card.selected .option-indicator {
-  background: #246DD5;
-  border-color: #246DD5;
+  background: #4A7C27;
+  border-color: #4A7C27;
 }
 
 .option-label {
@@ -141,7 +145,7 @@
 }
 
 .option-card.selected .option-label {
-  color: #0C447C;
+  color: #4A7C27;
 }
 
 .option-desc {
@@ -151,11 +155,11 @@
 }
 
 .option-card.selected .option-desc {
-  color: #185FA5;
+  color: #4a7c27af;
 }
 
 .questionnaire-next {
-  background: #246DD5;
+  background: #4A7C27;
   color: white;
   border: none;
   border-radius: 8px;
@@ -168,13 +172,13 @@
 }
 
 .questionnaire-next:hover {
-  background: #1a5bbf;
+  background: #467625;
 }
 
 .questionnaire-back {
   background: white;
-  color: #246DD5;
-  border: 1px solid #246DD5;
+  color: #4A7C27;
+  border: 1px solid #4A7C27;
   border-radius: 8px;
   padding: 13px 20px;
   font-size: 14px;
@@ -184,7 +188,7 @@
 }
 
 .questionnaire-back:hover {
-  background: #E6F1FB;
+  background: #EEF4E6;
 }
 
 .questionnaire-buttons {
