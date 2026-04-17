@@ -42,6 +42,6 @@ class PlantsController < ApplicationController
       { plant: plant, score: score }
     end
 
-    @plants = scored_plants.sort_by { |item| -item[:score] }.first(3)
+    @plants = scored_plants.sort_by { |item| -item[:score] }.first(6)
   end
 end
