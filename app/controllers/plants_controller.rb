@@ -17,9 +17,9 @@ class PlantsController < ApplicationController
       response = RubyLLM.chat
                         .with_instructions("You are a plant expert. Be concise but informative, do not use any special characters, do use emoji.")
                         .ask("For a #{@plant.name} plant, give me:
-        ☘️ Care tips
-        ⏳ A short history of this plant
-        🐛 A common illness for this plant and the method of treatment")
+        1. Care tips
+        2. A short history of this plant
+        3. A common illness for this plant and the method of treatment")
                         .content
 
       @plant.update(plant_info: response)
