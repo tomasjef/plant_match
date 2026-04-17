@@ -1,5 +1,5 @@
 class PlantsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :results]
+  skip_before_action :authenticate_user!, only: %i[index show results]
 
   def index
     @plants = Plant.all
@@ -15,11 +15,12 @@ class PlantsController < ApplicationController
 
     if @plant.plant_info.blank?
       response = RubyLLM.chat
-        .with_instructions("You are a plant expert. Be concise but informative.")
-        .ask("For a #{@plant.name} plant, give me:
-        1. Tips to take care of the plant
-        2. A short history of this plant")
-        .content
+                        .with_instructions("You are a plant expert. Be concise but informative. Use <strong> tags for section titles.")
+                        .ask("For a #{@plant.name} plant, give me:
+        <strong>1. Care tips</strong>
+        <strong>2. A short history of this plant</strong>
+        <strong>3. A common illness for this plant and the method of treatment</strong>")
+                        .content
 
       @plant.update(plant_info: response)
     end
