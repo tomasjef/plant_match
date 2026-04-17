@@ -24,16 +24,11 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= render "shared/flashes" %>
-    <%= link_to "Skip to main content", "#main-content", class: "visually-hidden-focusable" %>
-    <header>
-      <%= render "shared/navbar" %> <!-- 👈 Add this for navbar -->
-    </header>
 
-    <main id="main-content">
-      <%= yield %>
-    </main>
-  </body>
+      <%= render "shared/flashes" %>
+      <%= link_to "Skip to main content", "#main-content", class: "visually-hidden-focusable" %>
+      <%= render "shared/navbar" %> <!-- 👈 Add this for navbar -->
+      <main id="main-content">
+        <%= yield %>
+      </main>
 </html>
