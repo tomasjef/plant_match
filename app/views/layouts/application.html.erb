@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Plant Match Maker" %></title>
+    <title><%= content_for(:title) || "Plant Match" %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Plant Match Maker">
@@ -17,6 +17,7 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -24,6 +25,7 @@
   </head>
 
   <body>
+<<<<<<< HEAD
 
       <%= render "shared/flashes" %>
       <%= link_to "Skip to main content", "#main-content", class: "visually-hidden-focusable" %>
@@ -31,4 +33,13 @@
       <main id="main-content">
         <%= yield %>
       </main>
+=======
+    <%= render "shared/flashes" %>
+    <%= link_to "Skip to main content", "#main-content", class: "visually-hidden-focusable" %>
+    <%= render "shared/navbar" %> <!-- 👈 Add this for navbar -->
+    <main id="main-content">
+      <%= yield %>
+    </main>
+  </body>
+>>>>>>> master
 </html>
