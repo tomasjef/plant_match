@@ -2,11 +2,11 @@
 
   <!-- Left image panel -->
   <div class="questionnaire-image">
-    <div class="questionnaire-image-text">
+    <%# <div class="questionnaire-image-text">
       <p class="questionnaire-brand">Plant Match Maker</p>
       <p class="questionnaire-tagline">Find your perfect plant</p>
       <p class="questionnaire-sub">7 quick questions</p>
-    </div>
+    </div> %>
   </div>
 
   <!-- Right form panel -->
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <%= form_with url: results_plants_path, method: :get, local: true do |f| %> # amended this line from -- form_with url: chats_path do |f| --
+    <%= form_with url: results_plants_path, method: :get, local: true do |f| %>
 
       <!-- Step 1: Light -->
       <div data-questionnaire-target="step" class="questionnaire-step">
