@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <%= form_with url: chats_path do |f| %>
+    <%= form_with url: results_plants_path, method: :get, local: true do |f| %> # amended this line from -- form_with url: chats_path do |f| --
 
       <!-- Step 1: Light -->
       <div data-questionnaire-target="step" class="questionnaire-step">
