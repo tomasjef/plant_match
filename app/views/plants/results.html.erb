@@ -1,0 +1,90 @@
+<div class="container py-4">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0" style="font-weight:600">Your Plant Matches</h1>
+
+    <div class="d-flex gap-2">
+      <%= link_to "Back to Questionnaire", new_chat_path, class: "btn btn-outline-success rounded-pill px-3" %>
+      <%= link_to "Plant Catalog", plants_path, class: "btn btn-success rounded-pill px-3" %>
+    </div>
+  </div>
+
+  <% if @plants.any? %>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <% @plants.each do |item| %>
+        <% plant = item[:plant] %>
+
+        <div class="col">
+          <div class="card h-100">
+            <% if plant.image_url.present? %>
+              <%= image_tag plant.image_url,
+                class: "card-img-top",
+                style: "height: 200px; object-fit: cover;",
+                alt: plant.name %>
+            <% else %>
+              <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 200px">
+                <span style="color:white; font-size:40px">🌿</span>
+              </div>
+            <% end %>
+
+            <div class="card-body">
+              <h5 class="card-title mb-2 mt-2" style="font-weight:600"><%= plant.name %></h5>
+
+              <div class="d-flex flex-wrap gap-2 mt-3">
+                <% if plant.care_level.present? %>
+                  <span class="badge rounded-pill border" style="color:black; font-weight:400; border-color:black !important; background:transparent">
+                    🌱 <%= plant.care_level %>
+                  </span>
+                <% end %>
+
+                <% if plant.light_needs.present? %>
+                  <span class="badge rounded-pill border" style="color:black; font-weight:400; border-color:black !important; background:transparent">
+                    ☀️ <%= plant.light_needs %>
+                  </span>
+                <% end %>
+
+                <% if plant.water_needs.present? %>
+                  <span class="badge rounded-pill border" style="color:black; font-weight:400; border-color:black !important; background:transparent">
+                    💧 <%= plant.water_needs %>
+                  </span>
+                <% end %>
+
+                <% if plant.indoor_outdoor.present? %>
+                  <span class="badge rounded-pill border" style="color:black; font-weight:400; border-color:black !important; background:transparent">
+                    🏠 <%= plant.indoor_outdoor %>
+                  </span>
+                <% end %>
+
+                <% if plant.pet_safe %>
+                  <span class="badge rounded-pill border" style="color:black; font-weight:400; border-color:black !important; background:transparent">
+                    ✅ pet safe
+                  </span>
+                <% end %>
+
+                <% if plant.air_purifying %>
+                  <span class="badge rounded-pill border" style="color:black; font-weight:400; border-color:black !important; background:transparent">
+                    💨 air purifying
+                  </span>
+                <% end %>
+              </div>
+
+              <div class="mt-4 d-flex align-items-center gap-2">
+                <%= link_to "See details", plant_path(plant), class: "btn btn-sm btn-success rounded-pill px-3 py-2" %>
+
+                <%= button_to plant_favorites_path(plant), method: :post, class: "btn btn-sm btn-outline-danger rounded-pill px-3 py-2" do %>
+                  Add to Favorites
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="text-center py-5">
+      <h4>No matches found</h4>
+      <%= link_to "Try Again", new_chat_path, class: "btn btn-success rounded-pill px-4 mt-3" %>
+    </div>
+  <% end %>
+
+</div>
