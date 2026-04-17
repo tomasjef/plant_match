@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["step", "progress", "progressBar", "counter"]
+  static targets = ["step", "progress", "progressBar", "counter", "image"]
 
   connect() {
     this.currentStep = 0
@@ -16,6 +16,12 @@ export default class extends Controller {
     const percent = Math.round((index / this.totalSteps) * 100)
     this.progressBarTarget.style.width = `${percent}%`
     this.counterTarget.textContent = `Question ${index + 1} of ${this.totalSteps}`
+
+    // swap left panel image
+    const imageUrl = this.stepTargets[index].dataset.image
+    if (imageUrl && this.hasImageTarget) {
+      this.imageTarget.style.backgroundImage = `url('${imageUrl}')`
+    }
   }
 
   next() {
