@@ -15,11 +15,11 @@ class PlantsController < ApplicationController
 
     if @plant.plant_info.blank?
       response = RubyLLM.chat
-                        .with_instructions("You are a plant expert. Be concise but informative. Use <strong> tags for section titles.")
+                        .with_instructions("You are a plant expert. Be concise but informative, do not use any special characters, do use emoji.")
                         .ask("For a #{@plant.name} plant, give me:
-        <strong>1. Care tips</strong>
-        <strong>2. A short history of this plant</strong>
-        <strong>3. A common illness for this plant and the method of treatment</strong>")
+        ☘️ Care tips
+        ⏳ A short history of this plant
+        🐛 A common illness for this plant and the method of treatment")
                         .content
 
       @plant.update(plant_info: response)
